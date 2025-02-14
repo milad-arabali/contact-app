@@ -1,12 +1,14 @@
 import {useState} from "react";
 import inputs from "../Contact/Contact.js";
 import ContactList from "./ContactList.jsx";
+import {v4} from "uuid";
 
 
 function FormContact() {
     const [contacts, setContacts] = useState([]);
     const [alert, setAlert] = useState("");
     const [contact, setContact] = useState({
+        id: '',
         name: '',
         familyName: '',
         email: '',
@@ -18,13 +20,18 @@ function FormContact() {
         const {name, value} = e.target;
         setContact((prevContact) => ({...prevContact, [name]: value}))
     }
+    const deleteHandler = (id) => {
+        const newContacts = contacts.filter(contact => contact.id !== id);
+        setContacts(newContacts);
+    }
     const handleSubmit = () => {
         if (!contact.name || !contact.familyName || !contact.familyName || !contact.familyName) {
             setAlert("Please enter a valid name");
             return;
         }
         setAlert("");
-        setContacts((contacts) => ([...contacts, contact]));
+        const newContact = {...contact, id: v4()};
+        setContacts((contacts) => ([...contacts, newContact]));
         setContact({
             name: '',
             familyName: '',
@@ -68,7 +75,7 @@ function FormContact() {
                         </p>
                     )}
                 </div>
-                <ContactList contacts={contacts}/>
+                <ContactList contacts={contacts} deleteHandler={deleteHandler}/>
             </div>
         </>
     );
