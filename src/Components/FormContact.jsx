@@ -44,7 +44,7 @@ function FormContact() {
     return (
         <>
 
-            <div className="flex justify-center items-center flex-col h-[250px] ">
+            <div className="flex justify-center items-center flex-col h-[550px] ">
                 <div
                     className="w-[50%]  p-6  rounded-lg shadow-lg
                     bg-gradient-to-r from-blue-400 to-blue-600
@@ -67,7 +67,7 @@ function FormContact() {
                       focus:bg-emerald-600 cursor-pointer" onClick={handleSubmit}>Submit
                     </button>
                 </div>
-                <div className="pt-3">
+                <div className="pt-3 pb-3">
                     {alert && (
                         <p className="bg-red-500
                          text-white p-4 rounded-lg shadow-lg text-center w-full max-w-md mx-auto animate-fade">

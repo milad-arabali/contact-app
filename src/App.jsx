@@ -7,8 +7,11 @@ function App() {
 
 
     return (<>
+
         <Header/>
-        <FormContact/>
+            <FormContact/>
+
+
 
     </>)
 }
