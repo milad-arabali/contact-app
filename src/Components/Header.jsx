@@ -2,8 +2,9 @@ function Header() {
     return (<>
         <div className="flex justify-center
              items-center flex-col
-             w-[60%] h-64
-             translate-y-[30%] mx-auto
+             w-[60%] h-[200px]
+             mx-auto
+             mb-5
              rounded-xl">
             <h1 className="text-3xl
                 font-extrabold text-white
